@@ -1,15 +1,15 @@
 
 
 
-<?php
-session_start();
-$_SESSION["diegobajo"];
-require_once 'vendor/autoload.php';
 
-use Illuminate\Http\Request;
+<?php
+
+require_once 'vendor/autoload.php';
 use SujalPatel\IntToEnglish\IntToEnglish;
 use Ballen\Distical\Calculator as DistanceCalculator;
 use Ballen\Distical\Entities\LatLong;
+
+
 
 IntToEnglish::Int2Eng(1000); // One Thousand
 IntToEnglish::Int2Eng(10500); // Ten Thousand Five hundred
@@ -20,11 +20,11 @@ if (isset($_REQUEST['calcular'])){
     $lat1;
     $lat1 = htmlspecialchars($_REQUEST['n_entero']);
     $lat2;
-    $lat2 = htmlspecialchars($_REQUEST['n_entero']);
+    $lat2 = htmlspecialchars($_REQUEST['n_entero2']);
     $lat3;
-    $lat3 = htmlspecialchars($_REQUEST['n_entero']);
+    $lat3 = htmlspecialchars($_REQUEST['n_entero3']);
     $lat4;
-    $lat4 = htmlspecialchars($_REQUEST['n_entero']);
+    $lat4 = htmlspecialchars($_REQUEST['n_entero4']);
 
     $location1 = new LatLong($lat1, $lat2);
     $location2 = new LatLong($lat3, $lat4);
@@ -39,8 +39,12 @@ $distance = $distanceCalculator->get();
 // you can also chain these methods together eg. $distanceCalculator->get()->asMiles();
 
 // We can now output the miles using the asMiles() method, you can also calculate and use asKilometres() or asNauticalMiles() as required!
-echo 'Distance in miles between Valladolid and Sevilla is: ' . $distance->asMiles();
+
+echo '<div style= “top:50%> Distance in miles between Valladolid and Sevilla is: ' . $distance->asMiles(). '</div>';
+
 };
+
+
 
 
 echo'
@@ -105,17 +109,17 @@ echo'
                 </div>
                 <div >
                     <label id=font for="n_entero">Introduce la Longitud  Punto 1:</label>
-                    <input name="n_entero" type="text" class="validate">
+                    <input name="n_entero2" type="text" class="validate">
                 
                 </div>
                 <div>
                     <label id=font for="n_entero">Introduce la Latitud Punto 2:</label>
-                    <input name="n_entero" type="text" class="validate">
+                    <input name="n_entero3" type="text" class="validate">
                 
                 </div>
                 <div>
                     <label id=font for="n_entero">Introduce la Longitud  Punto 2:</label>
-                    <input name="n_entero" type="text" class="validate">
+                    <input name="n_entero4" type="text" class="validate">
                 
                 </div>
                
@@ -134,6 +138,7 @@ echo'
     </div>
     <!--JavaScript at end of body for optimized loading-->
     <script type="text/javascript" src="js/materialize.min.js"></script>
+    
 </body>
 
 </html>'; 
