@@ -2,10 +2,8 @@
 
 
 <?php
-
-
 session_start();
-
+$_SESSION["diegobajo"];
 require_once 'vendor/autoload.php';
 
 use Illuminate\Http\Request;
@@ -97,7 +95,7 @@ echo'
                     <a title="Heroku" href=""><img class=heroku src="imagenes/heroku.png" alt="Heroku" width="120" height="120" /></a>
                     </p>
         </aside>
-        <form  method = "POST" action="index.php">
+        <form  method = "POST" action="">
             <div class="row">
                 
                 <div>
