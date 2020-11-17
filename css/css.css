@@ -34,7 +34,7 @@ label{
 }
 
 .container{
-    height: 620px;
+    height: 700px;
     width: 800px;
     background-color: rgb(97, 97, 97);
     border-radius: 2%;
@@ -104,4 +104,16 @@ input{
 }
 button{
     margin-top: 15px;
+}
+
+.result{
+ 
+    margin-top: 35px;
+    height: 30px;
+    width: 600px;
+    background-color: #fff;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    border-radius: 15px;
+    padding-top: 10px;
 }

@@ -9,44 +9,6 @@ use SujalPatel\IntToEnglish\IntToEnglish;
 use Ballen\Distical\Calculator as DistanceCalculator;
 use Ballen\Distical\Entities\LatLong;
 
-
-
-IntToEnglish::Int2Eng(1000); // One Thousand
-IntToEnglish::Int2Eng(10500); // Ten Thousand Five hundred
-
-
-
-if (isset($_REQUEST['calcular'])){
-    $lat1;
-    $lat1 = htmlspecialchars($_REQUEST['n_entero']);
-    $lat2;
-    $lat2 = htmlspecialchars($_REQUEST['n_entero2']);
-    $lat3;
-    $lat3 = htmlspecialchars($_REQUEST['n_entero3']);
-    $lat4;
-    $lat4 = htmlspecialchars($_REQUEST['n_entero4']);
-
-    $location1 = new LatLong($lat1, $lat2);
-    $location2 = new LatLong($lat3, $lat4);
-
-
-
-// Get the distance between these two Lat/Long coordinates...
-$distanceCalculator = new DistanceCalculator($location1, $location2);
-
-// You can then compute the distance...
-$distance = $distanceCalculator->get();
-// you can also chain these methods together eg. $distanceCalculator->get()->asMiles();
-
-// We can now output the miles using the asMiles() method, you can also calculate and use asKilometres() or asNauticalMiles() as required!
-
-echo '<div style= “top:50%> Distance in miles between Valladolid and Sevilla is: ' . $distance->asMiles(). '</div>';
-
-};
-
-
-
-
 echo'
 
 <!DOCTYPE html>
@@ -133,12 +95,47 @@ echo'
 
                 </div>
                 
+                <div class=result>';
+
+                IntToEnglish::Int2Eng(1000); // One Thousand
+                IntToEnglish::Int2Eng(10500); // Ten Thousand Five hundred
+
+
+                if (isset($_REQUEST['calcular'])){
+                    $lat1;
+                    $lat1 = htmlspecialchars($_REQUEST['n_entero']);
+                    $lat2;
+                    $lat2 = htmlspecialchars($_REQUEST['n_entero2']);
+                    $lat3;
+                    $lat3 = htmlspecialchars($_REQUEST['n_entero3']);
+                    $lat4;
+                    $lat4 = htmlspecialchars($_REQUEST['n_entero4']);
+
+                    $location1 = new LatLong($lat1, $lat2);
+                    $location2 = new LatLong($lat3, $lat4);
+
+
+
+                // Get the distance between these two Lat/Long coordinates...
+                $distanceCalculator = new DistanceCalculator($location1, $location2);
+
+                // You can then compute the distance...
+                $distance = $distanceCalculator->get();
+                // you can also chain these methods together eg. $distanceCalculator->get()->asMiles();
+
+                // We can now output the miles using the asMiles() method, you can also calculate and use asKilometres() or asNauticalMiles() as required!
+
+                echo '<div style= “top:50%> Distance in miles between Valladolid and Sevilla is: '.$distance->asMiles().' miles</div>';
+
+                };'
+                </div>
+
             </div>
         </form>
     </div>
     <!--JavaScript at end of body for optimized loading-->
     <script type="text/javascript" src="js/materialize.min.js"></script>
-    
+
 </body>
 
 </html>'; 
