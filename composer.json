@@ -2,5 +2,8 @@
     "require": {
         "ballen/distical": "^2.0",
         "sujalpatel/inttoenglish": "^1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.4"
     }
 }

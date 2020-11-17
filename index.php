@@ -1,4 +1,49 @@
+
+
+
 <?php
+
+
+session_start();
+
+require_once 'vendor/autoload.php';
+
+use Illuminate\Http\Request;
+use SujalPatel\IntToEnglish\IntToEnglish;
+use Ballen\Distical\Calculator as DistanceCalculator;
+use Ballen\Distical\Entities\LatLong;
+
+IntToEnglish::Int2Eng(1000); // One Thousand
+IntToEnglish::Int2Eng(10500); // Ten Thousand Five hundred
+
+
+
+if (isset($_REQUEST['calcular'])){
+    $lat1;
+    $lat1 = htmlspecialchars($_REQUEST['n_entero']);
+    $lat2;
+    $lat2 = htmlspecialchars($_REQUEST['n_entero']);
+    $lat3;
+    $lat3 = htmlspecialchars($_REQUEST['n_entero']);
+    $lat4;
+    $lat4 = htmlspecialchars($_REQUEST['n_entero']);
+
+    $location1 = new LatLong($lat1, $lat2);
+    $location2 = new LatLong($lat3, $lat4);
+
+
+
+// Get the distance between these two Lat/Long coordinates...
+$distanceCalculator = new DistanceCalculator($location1, $location2);
+
+// You can then compute the distance...
+$distance = $distanceCalculator->get();
+// you can also chain these methods together eg. $distanceCalculator->get()->asMiles();
+
+// We can now output the miles using the asMiles() method, you can also calculate and use asKilometres() or asNauticalMiles() as required!
+echo 'Distance in miles between Valladolid and Sevilla is: ' . $distance->asMiles();
+};
+
 
 echo'
 
@@ -6,72 +51,72 @@ echo'
 <html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="CSS/estilo.css">
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
-
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="UTF-8">
 </head>
 
+<style>
+@import url(css/css.css)
+</style>
+
 <body>
 
+    <div class="marca" >BAJO</div>
+    <hr>
 
-    <div class="row">
+    <div class="container">
 
         <div class="col s12  blue center-align card-panel teal lighten-2">
-            <h4>Examen Despliegue Aplicaciones Web</h4>
+            <h4 class="tit">Examen Despliegue Aplicaciones Web Diego Bajo</h4>
         </div>
         
-        <div class="col s12  ">
+        <div class="container2">
             
-            <p>Lo que vamos a realizar es una aplicacion en PHP, que realize lo siguiente:
+            <p id=font>Lo que vamos a realizar es una aplicacion en PHP, que realize lo siguiente:
             <ol>
-            <li>Dado dos puntos calcular la distancia entre ellos. Esos puntos vendran marcados por su latitud y su longitud </li>
-            <li>Una vez halla calculado la distancia quiero que me traduzca al ingles esa distancia.</li>
+            <li id=font>Dado dos puntos calcular la distancia entre ellos. Esos puntos vendran marcados por su latitud y su longitud </li>
+            <li id=font>Una vez halla calculado la distancia quiero que me traduzca al ingles esa distancia.</li>
             </ol>
             </p>
             <p>
             Por ejemplo dadas las siguientes coordenadas:
             <ul>
-            <li>(41.65518, -4.72372) corresponde a Valladolid </li>
-            <li>(37.38283, -5.97317) corresponde a Sevilla </li>
+            <li id=font>(41.65518, -4.72372) corresponde a Valladolid </li>
+            <li id=font>(37.38283, -5.97317) corresponde a Sevilla </li>
             </ul>
             
             </p>
         
             
         </div>
-        <aside>
-                    <h5>Enlace Heroku </h5>
-                    Pulsa sobre esta imagen para ver desplegada la aplicacion sobre heroku
+        <aside class="img">
+                    
+                   
                     <p>
-                    <a title="Heroku" href=""><img src="imagenes/heroku.png" alt="Heroku" width="120" height="120" /></a>
+                    <a title="Heroku" href=""><img class=heroku src="imagenes/heroku.png" alt="Heroku" width="120" height="120" /></a>
                     </p>
         </aside>
-        <form class="col s12" method = "POST">
+        <form  method = "POST" action="index.php">
             <div class="row">
                 
-                <div class="input-field col s2">
-                    <label for="n_entero">Introduce la Latitud Punto 1:</label>
+                <div>
+                    <label id=font for="n_entero">Introduce la Latitud Punto 1:</label>
                     <input name="n_entero" type="text" class="validate">
                     
                 </div>
-                <div class="input-field col s2">
-                    <label for="n_entero">Introduce la Longitud  Punto 1:</label>
+                <div >
+                    <label id=font for="n_entero">Introduce la Longitud  Punto 1:</label>
                     <input name="n_entero" type="text" class="validate">
                 
                 </div>
-                <div class="input-field col s2">
-                    <label for="n_entero">Introduce la Latitud Punto 2:</label>
+                <div>
+                    <label id=font for="n_entero">Introduce la Latitud Punto 2:</label>
                     <input name="n_entero" type="text" class="validate">
                 
                 </div>
-                <div class="input-field col s2">
-                    <label for="n_entero">Introduce la Longitud  Punto 2:</label>
+                <div>
+                    <label id=font for="n_entero">Introduce la Longitud  Punto 2:</label>
                     <input name="n_entero" type="text" class="validate">
                 
                 </div>
@@ -93,6 +138,7 @@ echo'
     <script type="text/javascript" src="js/materialize.min.js"></script>
 </body>
 
-</html>';
+</html>'; 
+
 
 

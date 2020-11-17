@@ -1,0 +1,106 @@
+hr {
+    height: 0.01px;
+    background-color:#fff;
+    margin-top: 40px;
+
+}
+
+.marca{
+    margin-left: 40px;
+    margin-top: 20px;
+    border-style: solid;
+    border-color: white;
+    border-width: 2.8px;
+    width: 80px;
+    height: 24px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    color: white;
+    text-align: center;
+    padding-top: 8px;
+    padding-bottom: -8px;
+    font-family: 'Roboto';
+}
+
+body{
+    background-color: #0f0f0f;
+
+
+}
+
+label{
+    color: #fff;
+}
+
+.container{
+    height: 620px;
+    width: 800px;
+    background-color: rgb(97, 97, 97);
+    border-radius: 2%;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.container2{
+    height: 200px;
+    width: 640px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 1%;
+    margin: auto;
+    margin-top: 50px;
+    font-size: 15px;
+    font-family: 'Roboto';
+    font-weight: 600;
+    padding: 20px;
+}
+
+.tit{
+    font-family: 'Roboto';
+    font-weight: 600;
+    font-size: 18px;
+    color: #fff;
+    padding-top: 20px;
+    text-align: center;
+
+}
+
+#font {
+    color: black;
+}
+
+.img{
+    position: absolute;
+    top: 63%;
+    left: 60%;
+}
+
+form{
+    height: 150px;
+    width: 450px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 1%;
+    margin: auto;
+    margin-top: 50px;
+    font-size: 15px;
+    font-family: 'Roboto';
+    font-weight: 600;
+    padding: 20px;
+    position: absolute;
+    top: 60%;
+    left: 28%;
+ 
+}
+
+.heroku{
+    height: 200px;
+    width: 200px;
+}
+
+input{
+    margin-left: 25px;
+    margin-top: 10px;
+}
+button{
+    margin-top: 15px;
+}
